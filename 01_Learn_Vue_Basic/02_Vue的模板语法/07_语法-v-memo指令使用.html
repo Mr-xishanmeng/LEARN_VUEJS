@@ -8,30 +8,33 @@
 </head>
 
 <body>
-
   <div id="app">
-    <h2>当前计数:{{counter}} </h2>
-    <button @click="increment">+1</button>
-    <button @click="decrement">-1</button>
+    <div v-memo="[name]">
+      <h2>姓名：{{name}}</h2>
+      <h2>年龄：{{age}}</h2>
+      <h2>身高：{{height}}</h2>
+    </div>
+    <button @click="updataInfo">改变信息</button>
   </div>
-
   <script src="../lib/vue.js"></script>
   <script>
+    // 1.创建app
     const app = Vue.createApp({
-      data() {
+      // data:option api
+      data: function () {
         return {
-          counter: 0
+          name: "why",
+          age: 18,
+          height: 1.88
         }
       },
       methods: {
-        increment: function () {
-          this.counter++
-        },
-        decrement: function () {
-          this.counter--
+        updataInfo: function () {
+          this.age = 20
         }
       }
     })
+    // 2.挂载app
     app.mount("#app")
   </script>
 </body>

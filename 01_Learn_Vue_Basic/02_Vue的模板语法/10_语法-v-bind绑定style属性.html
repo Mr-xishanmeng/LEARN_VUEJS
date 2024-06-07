@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.普通的html语法 -->
+    <h2 style="color:red;font-size: 50px;">{{message}}</h2>
+
+    <!-- 2.style中的某些值，来自data中 -->
+    <!-- 在js中，带-当成一个整体，font-size加'' -->
+    <!-- <h2 :style="{color:'pink','font-size':'30px'}">哈哈哈</h2> -->
+    <!-- 或者写成驼峰让js进行解析 -->
+
+    <!-- 2.1动态绑定style，在后面跟上对象类型 -->
+    <h2 :style="{color:'pink',fontSize:fontSize}">哈哈哈</h2>
+
+    <!-- 2.2动态的绑定属性，这个属性是一个对象 -->
+    <h2 :style="objStyle">hhh</h2>
+
+    <!-- 3.style的数组语法 -->
+    <h1 :style="[objStyle,{backgroundColor:'purple' }]">嘿嘿</h1>
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+    // 1.创建app
+    const app = Vue.createApp({
+      // data:option api
+      data: function () {
+        return {
+          message: "Hello Vue",
+          fontSize: '30px',
+          objStyle: {
+            fontSize: '50px',
+            color: "green"
+          }
+        }
+      }
+    })
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+</body>
+
+</html>

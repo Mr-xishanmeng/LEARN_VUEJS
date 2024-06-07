@@ -8,30 +8,24 @@
 </head>
 
 <body>
-
   <div id="app">
-    <h2>当前计数:{{counter}} </h2>
-    <button @click="increment">+1</button>
-    <button @click="decrement">-1</button>
+    <h2>{{message}}</h2>
+    <p>当前计数:{{counter}}</p>
+    <p v-pre>{{}}</p>
   </div>
-
   <script src="../lib/vue.js"></script>
   <script>
+    // 1.创建app
     const app = Vue.createApp({
-      data() {
+      // data:option api
+      data: function () {
         return {
+          message: "Hello Vue",
           counter: 0
-        }
-      },
-      methods: {
-        increment: function () {
-          this.counter++
-        },
-        decrement: function () {
-          this.counter--
         }
       }
     })
+    // 2.挂载app
     app.mount("#app")
   </script>
 </body>

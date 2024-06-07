@@ -9,26 +9,36 @@
 
 <body>
   <div id="app">
+    <!-- 指令和属性放在一块 -->
+    <h2 v-once>
+      {{message}}
+      <span>数字：{{counter}}</span>
+    </h2>
+
     <h2>{{message}}</h2>
     <button @click="changeMessage">改变message</button>
+
   </div>
   <script src="../lib/vue.js"></script>
   <script>
+    // 1.创建app
     const app = Vue.createApp({
-      template: ``,
       // data:option api
-      data() {
+      data: function () {
         return {
-          message: "Hello Data"
+          message: "Hello Vue",
+          counter: 100
         }
       },
-      // methods:option api
       methods: {
         changeMessage: function () {
-          this.message = "你好，世界"
+          this.message = "你好李银河"
+          this.counter = this.counter * 2
+          console.log(this.message, this.counter)
         }
       }
     })
+    // 2.挂载app
     app.mount("#app")
   </script>
 </body>

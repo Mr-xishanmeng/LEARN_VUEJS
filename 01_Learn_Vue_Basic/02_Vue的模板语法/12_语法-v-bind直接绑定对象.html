@@ -9,7 +9,11 @@
 
 <body>
   <div id="app">
-    <h2>{{message}}</h2>
+    <h2 name="why" age="18" height="1.88">hello World</h2>
+    <h2 :name="name" :age="age" :height="height">hello World</h2>
+
+    <!-- v-bind绑定对象：给组件传递参数 -->
+    <h2 :="props">hello World</h2>
   </div>
   <script src="../lib/vue.js"></script>
   <script>
@@ -18,7 +22,11 @@
       // data:option api
       data: function () {
         return {
-          message: "Hello Vue"
+          props: { name: "why", age: 18, height: 1.88 },
+
+          name: "why",
+          age: "18",
+          height: "1.88"
         }
       }
     })
