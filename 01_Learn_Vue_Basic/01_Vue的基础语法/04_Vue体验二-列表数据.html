@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script src="./lib/vue.js"></script>
+  <script>
+    // vue提供的模板引擎v-for遍历
+    const app = Vue.createApp({
+      template: `
+      <h2>电影列表</h2>
+      <ul>
+        <li v-for="item in movies">{{item}}</li>
+      </ul>
+      `,
+      // 函数增强的写法
+      data() {
+        return {
+          message: "你好啊,李银河",
+          movies: ["大话西游", "星际穿越", "盗梦空间", "少年派"]
+        }
+      }
+    })
+    app.mount("#app")
+  </script>
+</body>
+
+</html>
